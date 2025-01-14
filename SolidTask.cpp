@@ -26,8 +26,8 @@ public:
 //payment methods interface
 class PaymentMethod {
 public:
-    virtual bool getDetails() = 0;  // Pure virtual function to collect payment details
-    virtual void makePayment() = 0; // Pure virtual function to complete the payment
+    virtual bool getDetails() = 0;  //  function to collect payment details
+    virtual void makePayment() = 0; //  function to complete the payment
 };
  
 // Concrete classes for wallet upi debit caes and credit card
@@ -179,15 +179,15 @@ public:
     
 };
  
-// Main function to run the application
+
 int main() {
     PaymentProcess payment;  // Create a PaymentProcess object
  
-    payment.choosepaymentProvider();  // Let the user choose a payment provider
-    payment.choosePaymentMethod();    // Let the user choose a payment method
-    payment.processPayment();         // Process the payment and complete the flow
+    payment.choosepaymentProvider();  //  choose a payment provider
+    payment.choosePaymentMethod();    // choose a payment method
+    payment.processPayment();         // Process the payment 
  
-    return 0;  // Exit the program
+    return 0;  
 }
  
  
