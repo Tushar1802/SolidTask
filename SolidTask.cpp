@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
- 
 // interface 
 class paymentProvider {
 public:
@@ -89,7 +87,9 @@ public:
         cin >> expiryDate;
         cout << "CVV: ";
         cin >> cvv;
-        if(cvv.size()!=3 )return false;
+        int stringToInt=stoi(cvv);
+
+        if(cvv.size()!=3 || !isdigit(stringToInt))return false;
         cout << "Credit Card details entered: " << cardNumber << ", Expiry: " << expiryDate << ", CVV: " << cvv << endl;
        return true;
     }
@@ -108,9 +108,11 @@ public:
         if(cardNumber.size()!=16)return false;
         cout << "Expiry Date (MM/YY): ";
         cin >> expiryDate;
+        if(expiryDate[2]!='/')return false;
         cout << "CVV: ";
         cin >> cvv;
-         if(cvv.size()!=3 )return false;
+        int stringToInt=stoi(cvv);
+         if(cvv.size()!=3 || !isdigit(stringToInt) )return false;
         cout << "Debit Card details entered: " << cardNumber << ", Expiry: " << expiryDate << ", CVV: " << cvv << endl;
 
         return true;
@@ -164,7 +166,7 @@ public:
         }
  
        bool istrue= method->getDetails();  // Get payment details.
-       cout<<istrue;
+       
        if(istrue){
         provider->processPayment();  // Process payment.
         method->makePayment();  // Complete the payment.
